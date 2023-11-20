@@ -1,0 +1,119 @@
+:root {
+    --size-button: 60px;
+    --size-radius-button: 5px;
+
+    --height-tools: 30px;
+
+    --size-radius: 10px;
+
+    --bg-button: #fff;
+    --bg-main: #ccc;
+    --bg-hover-button: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+main#main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-main);
+}
+main#main .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+main#main .container .calculadora {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+    background-color: #4c004c;
+    padding: 20px;
+    border-radius: var(--size-radius);
+    box-shadow: inset 0px 0px 22px 3px #4c004c, 0px 0px 28px 5px #4c004c;
+}
+
+main#main .container .calculadora .display {
+    background-color: #fff;
+    text-align: right;
+    padding: 10px;
+    height: 47px;
+}
+main#main .container .calculadora .display p {
+    font-size: 17pt;
+}
+
+/* /////////////////////////////////////////////////////// */
+main#main .container .calculadora .teclado .tecla[data-tecla='delete'] {
+    transform: rotate(180deg);
+}
+main#main .container .calculadora .teclado .tecla {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+main#main .container .calculadora .teclado {
+    display: grid;
+    justify-items: center;
+    grid-template-areas: 
+                        'tools1  tools2  tools3  tools4'
+                        'number1 number2 number3 operators1'
+                        'number4 number5 number6 operators2'
+                        'number7 number8 number9 operators3'
+                        'ponto   number0 result  operators4';
+    gap: 5px;
+}
+
+main#main .container .calculadora .teclado span:nth-child(1) {grid-area: tools1;}
+main#main .container .calculadora .teclado span:nth-child(2) {grid-area: tools2;}
+main#main .container .calculadora .teclado span:nth-child(3) {grid-area: tools3;}
+main#main .container .calculadora .teclado span:nth-child(4) {grid-area: tools4;}
+main#main .container .calculadora .teclado span:nth-child(5) {grid-area: number1;}
+main#main .container .calculadora .teclado span:nth-child(6) {grid-area: number2;}
+main#main .container .calculadora .teclado span:nth-child(7) {grid-area: number3;}
+main#main .container .calculadora .teclado span:nth-child(8) {grid-area: number4;}
+main#main .container .calculadora .teclado span:nth-child(9) {grid-area: number5;}
+main#main .container .calculadora .teclado span:nth-child(10) {grid-area: number6;}
+main#main .container .calculadora .teclado span:nth-child(11) {grid-area: number7;}
+main#main .container .calculadora .teclado span:nth-child(12) {grid-area: number8;}
+main#main .container .calculadora .teclado span:nth-child(13) {grid-area: number9;}
+main#main .container .calculadora .teclado span:nth-child(14) {grid-area: number0;}
+main#main .container .calculadora .teclado span:nth-child(15) {grid-area: operators1;}
+main#main .container .calculadora .teclado span:nth-child(16) {grid-area: operators2;}
+main#main .container .calculadora .teclado span:nth-child(17) {grid-area: operators3;}
+main#main .container .calculadora .teclado span:nth-child(18) {grid-area: operators4;}
+main#main .container .calculadora .teclado span:nth-child(19) {grid-area: ponto;}
+main#main .container .calculadora .teclado span:nth-child(20) {grid-area: result;}
+
+main#main .container .calculadora .teclado span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size-button);
+    width: var(--size-button);
+    background-color: var(--bg-button);
+    border-radius: var(--size-radius-button);
+    font-size: 15pt;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+main#main .container .calculadora .teclado span:hover {
+    background-color: var(--bg-hover-button);
+}
+main#main .container .calculadora .teclado span.tools {
+    height: var(--height-tools);
+    margin-bottom: 10px;
+}
+
+main#main .container .calculadora .teclado span.disabled {
+    background-color: var(--bg-hover-button);
+    cursor: default;
+}
